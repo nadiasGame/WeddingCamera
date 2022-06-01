@@ -11,6 +11,7 @@ let stream;
 const images = [];
 
 let picturesFromStorage = JSON.parse(localStorage.getItem('myPictures'));
+let imagesFromStorage = JSON.parse(localStorage.getItem('gallery'));
 let notificationPermission = '';
 
 /*function createNotification() {
@@ -78,7 +79,7 @@ showNotificationButton.addEventListener('click', () => {
 function displayPictures(pictures) {
     for(const picture of pictures) {
         console.log(picture);
-        createTodoItem(picture);
+        createPictureItem(picture);
     }
 }
 
@@ -174,4 +175,13 @@ function getImages() {
 }
 
 getImages();
+
+galleryElem.addEventListener('click', () => {
+    /*
+    1. Ta bort vald todo från arrayen (använd filter() eller en splice())
+    2. Spara den nya arrayen till localStorage
+   */ 
+    console.log(gallery);
+    galleryElem.remove();
+});
 
