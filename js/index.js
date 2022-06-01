@@ -14,6 +14,14 @@ let picturesFromStorage = JSON.parse(localStorage.getItem('myPictures'));
 let imagesFromStorage = JSON.parse(localStorage.getItem('gallery'));
 let notificationPermission = '';
 
+cameraButton.addEventListener('click', async () => {
+    if ('mediaDevices' in navigator) {
+        stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: false });
+        console.log(stream);
+        videoElem.srcObject = stream;
+    }
+});
+
 /*function createNotification() {
     const text = 'Detta är en notifikation!';
 
@@ -75,6 +83,17 @@ showNotificationButton.addEventListener('click', () => {
     //    saveToLocalStorage(picturesFromStorage);
 
     
+    takePictureButton.addEventListener('click', () => {
+        ctx.drawImage(videoElem, 0, 0, canvas.width, canvas.height);
+        const imageData = canvas.toDataURL('image/png'); // Konverterar det till en png-bild
+    
+        images.push({
+            id: images.length,
+            image: imageData        
+        });
+    
+        localStorage.setItem('cameraApp', JSON.stringify(images));
+    });
 
 function displayPictures(pictures) {
     for(const picture of pictures) {
@@ -126,6 +145,22 @@ function createNotification(text) {
         getPictures();
     }
 }*/
+function createImage(image) {
+    const imageElem = document.createElement('img');
+    imageElem.setAttribute('src', image.image);
+
+    galleryElem.append(imageElem);
+}
+
+function getImages() {
+    const images = JSON.parse(localStorage.getItem('cameraApp'));
+
+    for(const image of images) {
+        createImage(image);
+    }
+}
+
+getImages();
 
 window.addEventListener('load', async () => {
     if('serviceWorker' in navigator){
