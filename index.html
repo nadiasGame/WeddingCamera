@@ -2,34 +2,24 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="apple-touch-icon" href="icons/icon-192.png">
-    <title>WeddingCamera</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="manifest" href="manifest.json">
+    <meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=1,user-scalable=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="HandheldFriendly" content="true">
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans&amp;display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <title>Bröllopsfotografen</title>
 </head>
 <body>
-    <h1>WeddingCameraGallery</h1>
-    <button id="start-camera">Starta kameran</button>
-    <button id="take-picture">Ta kort</button>
-    <video src="" id="camera" autoplay></video>
-    <canvas id="picture"></canvas>
-
-    <section>
-        <h3>Galleri</h3>
-        <section id="gallery"></section>
-    </section>
-
-    <ul id="gallery"></ul>
-    
-    <button id="grant-button">Slå på notifikationer</button>
-    <button id="notifications-button">Visa notifikation</button>
-
-
-
-   
-
-    <script src="js/index.js"></script>
+    <div onclick="location.href='stream.html' ; " style="cursor: pointer;"; class="poster">
+        <div class="logo">
+            <div  class="eclipse4"></div>
+            <div  class="eclipse3"></div>
+            <div  class="eclipse2"></div>
+            <div  class="eclipse5"></div>
+            <div  class="eclipse1"></div>
+        </div>
+        <span  class="wedding-mark">Bröllopsfotografen</span>
+    </div>
+    <script type="module" src="./js/index.js"></script>
 </body>
 </html>
