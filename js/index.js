@@ -85,7 +85,7 @@ function sendNotification() {
 
     const notification = new Notification('Bröllopsfotografen', {
       body: text,
-      icon: './icons/notification.png'
+      icon: './icons/shark.png'
     });
 
     notification.onclick = function() {
