@@ -1,9 +1,22 @@
-html {
-	box-sizing: border-box;
-  }
-  *, *:before, *:after {
-	box-sizing: inherit;
-  }
+* {
+    box-sizing: border-box;
+}
+
+  body {
+    width: 100vw;
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+	background: #2A2E30;
+	display: flex;
+    flex-direction: column;
+    align-items: center;
+	
+}
+html { font-size:100%; }
+@media (min-width: 640px) { body {font-size:1rem;} }
+@media (min-width:960px) { body {font-size:1.2rem;} }
+@media (min-width:1100px) { body {font-size:1.5rem;} }
   
   @media screen and (max-width:600px) {
 	.column {
@@ -38,6 +51,7 @@ html {
 	position:absolute;
 	left:523px;
 	top:232px;
+    align-items: center;
 }
 .eclipse4 { 
 	border-radius:500px;
@@ -179,10 +193,13 @@ background: #2A2E30;
 	position:absolute;
 	left:24px;
 	top:276px;
+	
 }
 
 video,canvas {
     object-fit: fill;
+	max-width: 100%;
+  
 }
 
 .stream-text { 
@@ -313,4 +330,129 @@ video,canvas {
 
 /*gallery.html*/
 
+.e1_52 { 
+	background-color:rgba(42.03515700995922, 45.73265500366688, 47.8125, 1);
+	width:390px;
+	height:844px;
+	position:absolute;
+}
+.e1_59 { 
+	width:42px;
+	height:42px;
+	position:absolute;
+	left:324px;
+	top:24px;
+}
+.e1_60 { 
+	border-radius:500px;
+	background-color:rgba(255, 255, 255, 1);
+	width:42px;
+	height:42px;
+	position:absolute;
+	left:0px;
+	top:0px;
+}
+.e1_61 { 
+	border-radius:500px;
+	background-color:rgba(20.000000707805157, 20.000000707805157, 20.000000707805157, 1);
+	width:34.70109176635742px;
+	height:34.70109176635742px;
+	position:absolute;
+	left:3.6494367122650146px;
+	top:3.64949631690979px;
+}
+
+
+.e1_62 { 
+	border-radius:500px;
+	background-color:rgba(255, 255, 255, 0.14000000059604645);
+	width:25.803377151489258px;
+	height:25.803377151489258px;
+	position:absolute;
+	left:8.098201751708984px;
+	top:8.098380088806152px;
+}
+.e1_63 { 
+	border-radius:500px;
+	background-color:rgba(255, 255, 255, 0.14000000059604645);
+	width:18.68520736694336px;
+	height:18.68520736694336px;
+	position:absolute;
+	left:11.65726089477539px;
+	top:11.65740966796875px;
+}
+.e1_64 { 
+	border-radius:500px;
+	background-color:rgba(255, 255, 255, 0.44999998807907104);
+	width:2.2244296073913574px;
+	height:2.2244296073913574px;
+	position:absolute;
+	left:14.737009048461914px;
+	top:17.684232711791992px;
+}
+
+
+@import url('https://fonts.googleapis.com/css?family=Noto Sans');
+
+* {
+    box-sizing: border-box;
+    font-family: Noto Sans;
+}
+
+body {
+    background-color: #2A2E30;
+}
+
+.capturePageButton {
+    background-color: #2A2E30;
+    border: none;
+    float: right;
+}
+
+#gallery {
+    flex: 2 0 21%;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    margin-top: 1rem;
+	display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 20px;
+    gap: 2em;
+}
+
+/* #gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 0 20px;
+    gap: 2em;
+} */
+
+/* Deleteknapp  */
+#gallery div {
+    position: relative;
+    
+}
+
+#gallery div button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    
+    border-radius: 55%;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.deleteButton:hover {
+    background-color: lightslategray !important;
+}
+
+/* End gallery.html*/
 

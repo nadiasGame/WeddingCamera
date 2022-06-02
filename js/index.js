@@ -28,7 +28,6 @@ async function cameraAutoStart(){
     if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) { // browser support
             stream = await navigator.mediaDevices.getUserMedia({video:true, audio:false});
             videoElem.srcObject = stream;
-            videoElem.load();
             videoElem.play();
     }
 };
@@ -44,7 +43,9 @@ takePictureButton.addEventListener ('click', () => {
         id: images.lenght,
         image: imageData
     });
+    sendNotification();
     localStorage.setItem('wedding-photos-App', JSON.stringify(images));
+    
 });
 
 newPicturesElem.addEventListener ('click', () => {
@@ -52,11 +53,6 @@ newPicturesElem.addEventListener ('click', () => {
     pictureElem.style.display='none' 
     takePictureButton.style.display = 'block'
 });
-
-
-function newFunction() {
-    cameraAutoStart();
-}
 
 function createImage(image){
     const imageElem = document.createElement('img');
@@ -72,6 +68,54 @@ function getImages(){
     }
 
 };
+
+window.addEventListener('load', async () => {
+    if('serviceWorker' in navigator){
+        try {
+            await navigator.serviceWorker.register('service-worker.js');
+        } catch(err) {
+            console.error('Whooopsie!', err)
+        }
+    }
+});
+
+function sendNotification() {
+    if (notificationPermission !== "granted") { return; } // har dom godkänt notiser, då kan vi fortsätta
+    let text = "Klick! Din bild är nu sparad, klicka här för att se den i galleriet!";
+
+    const notification = new Notification('Bröllopsfotografen', {
+      body: text,
+      icon: './icons/notification.png'
+    });
+
+    notification.onclick = function() {
+      window.open('gallery.html');
+    };
+}
+
+
+var notificationPermission = "";
+function askNotification() {
+    if (!("Notification" in window)) { 
+      alert("This browser does not support desktop notifications");
+      return;
+    }
+    Notification.requestPermission().then(function(result) { 
+      if (result === 'denied') {
+        notificationPermission = "denied";
+        console.log("Permission wasn't granted. Allow a retry.");
+        return;
+      }
+      if (result === 'default') {
+        notificationPermission = "default";
+        console.log('The permission request was dismissed.');
+        return;
+      }
+      notificationPermission = "granted";
+      console.log('Permission was granted for notifications');
+    });
+  }
+askNotification();
 
 cameraAutoStart();
 getImages();
